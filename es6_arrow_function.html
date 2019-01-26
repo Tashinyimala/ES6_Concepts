@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arraow Function ()-> { };</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const names = ["Oscar", "Hugo", "Pope"];
+
+        // Arrow function are anonymous function
+        const fullName = names.map(name => `${name} Smith`); // implicit return
+        console.table(fullName);
+
+        const sayJavascript = (text) => { alert(`ES6 arrow function ${text}`)};
+        sayJavascript('Javascript');
+
+        // Implicit Return with object literal
+        const race = "100m race";
+        const winners = ['Usian Bold', 'Tyson Gay', 'Justin Gatlin'];
+        const winner = winners.map((winner, index) => ({winner, race, place: index + 1}));
+        console.table(winner)
+
+        const ages = [23, 53, 67, 88, 92, 12, 34, 55, 66];
+        const older55 = ages.filter(age => (age >= 55));
+        console.log(older55);
+        
+    </script>
+</body>
+</html>
