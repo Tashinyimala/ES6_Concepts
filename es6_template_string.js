@@ -1,7 +1,3 @@
-const name = "Tashi Nyima";
-const age = 32;
-const sentences = `My name is ${name} and I am ${age + 2} old`;
-
 const person = {
     name: 'Tara',
     job: 'Web Developer',
@@ -108,4 +104,51 @@ const dogName = 'Hachi';
 const dogAge  = 10;
 const sentence = highLight `My dog's name is ${dogName} and he is ${dogAge} years old`;
 
-document.body.innerHTML = sentence;
+// document.body.innerHTML = sentence;
+
+    // Abbreviations Tag
+const dict = {
+    HTML: 'Hyper Text Markup Language',
+    CSS: 'Cascading Style Sheets',
+    JS: 'Javascript'
+};
+
+const abbreviations = (strings, ...values) => {
+    const abbreviated = values.map(value => {
+        if (dict[value]) {
+            return `<abbr title="${dict[value]}">${value}</abbr>`;
+        }
+
+        return value;
+    });
+     return strings.reduce((sentence, string, i) => {
+         return `${sentence}${string}${abbreviated[i] || ''}`;
+     }, '');
+};
+
+const first = "Tashi";
+const last  = "Nyima"
+const nameSentences = abbreviations `My name is ${first}  ${last} and I love to code ${'HTML'}, ${'CSS'} and ${'JS'}`;
+
+const bio = document.querySelector('.bio');
+const p = document.createElement('p');
+// p.innerHTML = nameSentences;
+// bio.appendChild(p);
+
+// Sanitizing User Data with Tagged Templates
+function sanitize (strings, ...values)  {
+    const dirty = strings.reduce((prev, next, i) => 
+        `${prev}${next}${values[i] || ''}`, '');
+
+    return DOMPurify.sanitize(dirty);
+};
+
+const name = 'Tashi';
+const aboutMe = sanitize `I love to hack <img src ="https://unsplash.it/640/425?random" onload="alert('You got hacked');" />`;
+
+const html = `
+    <h3>${name}</h3>
+    <p>${aboutMe}</p>
+`;
+
+bio.innerHTML = html;
