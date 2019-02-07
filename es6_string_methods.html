@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ES6 String Methods</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script>
+         const name = 'Tashi';
+         const ticketNumber = '20-AC2018-jz';
+         const accountNumber = '122442343RT0001';
+
+         // .startsWith()
+         console.log(name.startsWith('Ta')); // true
+         console.log(name.startsWith('ta')); // false
+
+         console.log(ticketNumber.startsWith('AC', 3)); // skip 3 characters //true
+
+        // .endsWith()
+        console.log(ticketNumber.endsWith('jz')); // true
+        console.log(accountNumber.endsWith('RT', 11)); // true // first 11 characters
+
+        // .includes()
+        console.log(ticketNumber.includes('AC')); // true
+        console.log(ticketNumber.includes('ac')); // false
+
+         const make = 'BMW';
+         const model = 'x5';
+         const colour = 'Royal Blue';
+
+        // .repeat()
+        console.log('🐍'.repeat(10));
+
+        const leftPad = (str, length = 20) => {
+            return `-> ${' '.repeat(length - str.length)}${str}`;
+        };
+
+        console.log(leftPad(make));
+        console.log(leftPad(model));
+        console.log(leftPad(colour));
+    </script>
+</body>
+</html>
