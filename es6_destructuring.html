@@ -59,11 +59,36 @@
         console.log(`one: ${one}, two: ${two}, rest_of_num: ${restNum}`);
 
         // Swapping Variables with Destructuring
-        let one = 1;
-        let two = 2;
-        [one, two] = [two, one];
+        let four = 4;
+        let five = 5;
+        [four, five] = [five, four];
 
-        console.log(`one: ${one}, two: ${two}`); // one: 2, two: 1
+        console.log(`one: ${four}, two: ${five}`); // one: 2, two: 1
+
+        // Destructuring Functions - Multiple returns and named defaults
+        const convertCurrency = (amount) => {
+            const converted = {
+                USD: amount * 0.76,
+                GBP: amount * 0.53,
+                AUD: amount * 1.01,
+                MEX: amount * 13.30,
+            };
+
+            return converted;
+        };
+
+        const {USD, GBP} = convertCurrency(100);
+        console.log(`USD:$${USD}, GBP:£${GBP}`);
+
+            // named defaults
+        const tipCalc = ({total, tip = 0.15, tax = 0.13} = {}) => {
+            return total + (tip * total) + (tax * total)
+        };
+
+        const bill = tipCalc({tip: 0.20, total: 200});
+        const bill1 = tipCalc();
+        console.log(bill); // 266
+        console.log(bill1); // NAN
 
     </script>
 </body>
