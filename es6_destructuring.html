@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ES6Destructuring</title>
+</head>
+<body>
+    <script>
+
+        // Object structuring
+        const person = {
+            first: 'Tashi',
+            last: 'Nyima',
+            country: 'United Kingdom',
+            city: 'London',
+            twitter: '@tashisun'
+        };
+
+        const {first, last} = person;
+        console.log(`first name: ${first}, last name: ${last}`);
+
+        // Nested Object - Destructuring
+        const tashi = {
+            first: 'Tashi',
+            last: 'Nyima',
+            link: {
+                social: {
+                    twitter: 'https://twitter.com/tashisun',
+                    facebook: 'https://facebook.com/tashinyima'
+                },
+                web: {
+                    blog:'https://tashinyima.co.uk'
+                }
+            }
+        };
+
+        const {twitter: tweet, facebook: fb} = tashi.link.social; // destrucing with variable renaming
+        console.log(tweet);
+        console.log(fb);
+
+        // Desturuing with default value
+        const settings = {width: 300, color: 'black'};
+        const {width = 100, height = 100, color = 'blue', fontSize = 25} = settings; // default
+        console.log(`width: ${width}, height: ${height}`);
+
+
+        // Array structuring
+        const details = ['Tashi', 4221, 'tashinyima@hotmail.com']
+        const[name, id, email] = details;
+        console.log(`name: ${name}, id: ${id}, email: ${email}`);
+
+        const data = 'EPL,2018-2019,week24,76';
+        const [league, season, week, points] = data.split(',');
+        console.log(`League: ${league}, Season: ${season}, Week: ${week}, Point: ${points}`)
+
+        const numbers = [1, 2, 3, 4, 5];
+        const [one, two, ...restNum] = numbers;
+        console.log(`one: ${one}, two: ${two}, rest_of_num: ${restNum}`);
+
+        // Swapping Variables with Destructuring
+        let one = 1;
+        let two = 2;
+        [one, two] = [two, one];
+
+        console.log(`one: ${one}, two: ${two}`); // one: 2, two: 1
+
+    </script>
+</body>
+</html>
