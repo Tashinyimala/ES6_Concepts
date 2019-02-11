@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6 for of loop</title>
+</head>
+<body>
+    <p>Hi I am in paragrah 01</p>
+    <p>Hi I am in paragrah 02</p>
+    <p>Hi I am in paragrah 03</p>
+    <p>Hi I am in paragrah 04</p>
+    <p>Hi I am in paragrah 05</p>
+    <p>Hi I am in paragrah 06</p>
+    <p>Hi I am in paragrah 07</p>
+    <p>Hi I am in paragrah 08</p>
+    <p>Hi I am in paragrah 09</p>
+    <p>Hi I am in paragrah 10</p>
+
+    <script>
+        const vegs = ['tomato', 'potato', 'carot', 'cabbage', 'garlic'];
+
+        for(const [i,veg] of vegs.entries()) {
+            console.log(`${veg} is the ${i + 1} item`);
+        }
+
+        // list of arguments
+        function addUpNumbers() {
+            console.log(arguments); // Arguments
+            let total = 0;
+
+            for (num of arguments) {
+                total += num;
+            }
+             return total;
+        }
+
+        addUpNumbers(12, 23, 43, 22, 46, 66); // 212
+
+        // Strings
+        const name = "Tashi Nyima";
+        for(const char of name) {
+            console.log(char);
+        }
+
+        // DOM forOf
+        const ps = document.querySelectorAll('p');
+        for (const paragraph of ps) {
+            console.log(paragraph);
+        }
+
+        // Object - not iterable
+        const orange = {
+            color: 'Orange',
+            size: 'Large',
+            weight: 50,
+            sugar: 5
+        };
+
+        // for (const prop of orange) {
+        //     console.log(prop);
+        // }
+
+        for (const prop of Object.keys(orange)) {
+            const value = orange[prop];
+            console.log(`${value}, :${prop}`);
+        }
+    </script>
+</body>
+</html>
