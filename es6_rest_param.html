@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rest Param</title>
+</head>
+<body>
+    <script>
+
+        // rest param convert list into array
+        const converCurrency = (rate, ...amounts) => {
+            return amounts.map(amount => amount * rate);
+        };
+
+        const result = converCurrency(1.25, 23, 45.5, 78.5);
+        console.log(result); // 28.75, 56.875, 98.125
+
+        const items = ['Tashi', 'Nyima', 1, 2, 56];
+        const [firstName, lastName, ...price] = items;
+        console.log(firstName, lastName, price);
+
+    </script>
+</body>
+</html>
