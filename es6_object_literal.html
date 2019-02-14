@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object literal</title>
+</head>
+<body>
+    <script>
+        const first = 'Tashi';
+        const last  = 'Nyima';
+        const age   = 30;
+        const city  = 'London';
+
+        const detail = {
+            firstName: first,
+            last,
+            age,
+            city: city,
+            country: 'UK'
+        };
+
+        console.log(detail);
+
+        // functions shortcut
+        const model = {
+            create(selector) {
+
+            },
+
+            open(content) {
+
+            },
+
+            close() {
+
+            }
+        };
+
+        // computed property name
+        const key = 'pocketColor';
+        const value = '#ffc600';
+
+        const invertColor = (color) => {
+            return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
+        };
+
+        const tShirt = {
+            [key]: value,
+            [`${key}opposite`]: invertColor(value),
+        };
+
+        console.log(tShirt); // {pocketColor: "#ffc600", pocketColoropposite: "#0039ff"}
+
+        const keys = ['size', 'color', 'weight'];
+        const values = ['medium', 'yellow', 150];
+
+        const shirt = {
+            [keys.shift()]: values.shift(),
+            [keys.shift()]: values.shift(),
+            [keys.shift()]: values.shift(),
+        };
+
+        console.log(shirt); // {size: "medium", color: "yellow", weight: 150}
+    </script>
+</body>
+</html>
